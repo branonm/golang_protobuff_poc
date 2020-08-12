@@ -1,0 +1,16 @@
+syntax = "proto3";
+package crawler;
+
+service Crawler {
+ rpc Start(CrawlerRequest) returns (CrawlerReply) {}
+ rpc Stop(CrawlerRequest) returns (CrawlerReply) {}
+ rpc List(CrawlerRequest) returns (stream CrawlerReply) {}
+}
+
+message CrawlerRequest {
+    string root = 1;
+}
+
+message CrawlerReply {
+    string message = 1;
+}
